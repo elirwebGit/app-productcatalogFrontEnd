@@ -65,18 +65,18 @@ function ProductPage() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Product Catalog</h1>
+      <h1>Catalogo de Produto</h1>
 
       <div>
         <input
-          placeholder="Name"
+          placeholder="Nome"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
         <input
           type="number"
-          placeholder="Price"
+          placeholder="Preço"
           value={price}
           onChange={(e) => setPrice(Number(e.target.value))}
         />
