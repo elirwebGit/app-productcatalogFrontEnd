@@ -1,46 +1,171 @@
-# Getting Started with Create React App
+# ProductCatalog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação de catálogo de produtos desenvolvida em .NET e React com foco em boas práticas de arquitetura, Clean Architecture, SOLID, CQRS, DDD e TDD.
 
-## Available Scripts
+## Objetivo
 
-In the project directory, you can run:
+O projeto foi desenvolvido para demonstrar conhecimentos em:
+Clean Architecture
+Domain-Driven Design (DDD)
+SOLID
+CQRS
+Dependency Injection
+Entity Framework Core
+Testes Unitários
+React + TypeScript
+Integração Frontend e Backend
 
-### `npm start`
+### Arquitetura
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A solução foi organizada seguindo os princípios da Clean Architecture.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Camadas
 
-### `npm test`
+## Domain
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Contém as regras de negócio centrais da aplicação:
 
-### `npm run build`
+Entidades
+Interfaces de Repositório
+Exceções de Domínio
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Responsável pelos casos de uso da aplicação:
 
-### `npm run eject`
+Commands
+Queries
+Handlers
+DTOs
+Responses
+Infrastructure
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Responsável pelos detalhes de implementação:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Entity Framework Core
+DbContext
+Repositórios
+Configuração de Banco de Dados
+API (Presenter)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Camada responsável por expor os endpoints REST.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Controllers
+Middlewares
+Configuração da aplicação
+Frontend
 
-## Learn More
+Aplicação React responsável pelo consumo da API.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Tecnologias Utilizadas
+Backend
+.NET 8
+ASP.NET Core Web API
+Entity Framework Core
+SQL Server
+Dependency Injection
+Swagger
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
+React
+TypeScript
+Axios
+Testes
+xUnit
+Moq
+Padrões e Conceitos Aplicados
+Clean Architecture
+
+Separação clara das responsabilidades entre domínio, aplicação, infraestrutura e apresentação.
+
+### SOLID
+
+Aplicação dos princípios SOLID para redução de acoplamento e aumento da manutenibilidade.
+
+### CQRS
+
+Separação entre operações de escrita (Commands) e leitura (Queries).
+
+Exemplos:
+
+Commands:
+
+CreateProductCommand
+UpdateProductCommand
+DeleteProductCommand
+
+Queries:
+
+GetProductsQuery
+GetProductByIdQuery
+Dependency Injection
+
+Utilização do container nativo do .NET para gerenciamento das dependências.
+
+### Repository Pattern
+
+Abstração do acesso a dados através de interfaces no domínio.
+
+Funcionalidades
+Produtos
+Criar produto
+Listar produtos
+Atualizar produto
+Excluir produto
+Estrutura da Solução
+src
+
+├── ProductCatalog.Domain
+├── ProductCatalog.Application
+├── ProductCatalog.Infrastructure
+├── ProductCatalog.Presenter
+└── ProductCatalog.Tests
+Estrutura Frontend
+src
+
+├── features
+│   └── products
+│       ├── models
+│       ├── pages
+│       └── services
+│
+└── shared
+    └── services
+Como Executar o Projeto
+
+### Backend
+Configurar a string de conexão no appsettings.json
+Executar as migrations
+dotnet ef database update
+Executar a API
+dotnet run
+Acessar o Swagger
+https://localhost:{porta}/swagger
+Frontend
+
+### Instalar dependências:
+
+npm install
+
+Executar aplicação:
+
+npm start
+
+A aplicação estará disponível em:
+
+http://localhost:3000
+Melhorias Futuras
+Paginação
+Filtros de pesquisa
+FluentValidation
+Testes de integração
+Docker Compose
+Autenticação JWT
+Logging estruturado com Serilog
+
+### Autor
+
+Elir Ribeiro
+
+Desenvolvedor Backend .NET com foco em arquitetura de software, APIs REST e boas práticas de desenvolvimento.
